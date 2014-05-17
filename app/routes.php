@@ -77,3 +77,15 @@ Route::post('oauth/access_token', function()
 {
 	return AuthorizationServer::performAccessTokenFlow();
 });
+
+Route::get('scope1', array('before' => 'oauth:scope1', function(){
+	return 'scope1 allowed';
+}));
+
+Route::get('scope2', array('before' => 'oauth:scope2', function(){
+	return 'scope2 allowed';
+}));
+
+Route::get('scope3', array('before' => 'oauth:scope3', function(){
+	return 'scope2 allowed';
+}));
