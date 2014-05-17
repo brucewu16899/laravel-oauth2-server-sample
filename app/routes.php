@@ -13,5 +13,18 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return Redirect::to('login');
+});
+
+Route::get('login', function()
+{
+	return View::make('login');
+});
+
+
+Route::post('login', function()
+{
+	$auth = Auth::attempt(['email' => Input::get('email'), 'password' => Input::get('password')]);
+
+	return Redirect::to($auth ? 'authorize-form' : 'login');
 });
