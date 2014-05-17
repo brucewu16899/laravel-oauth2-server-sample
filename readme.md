@@ -1,24 +1,28 @@
-## Laravel PHP Framework
+## laravel-oauth2-server-sample
+A sample for https://github.com/lucadegasperi/oauth2-server-laravel
 
-[![Build Status](https://img.shields.io/travis/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/framework.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Version](https://img.shields.io/github/tag/laravel/framework.svg)](https://github.com/laravel/framework/releases)
-[![Dependency Status](https://www.versioneye.com/php/laravel:framework/badge.svg)](https://www.versioneye.com/php/laravel:framework)
+### Install
+    $ git clone https://github.com/mamor/laravel-oauth2-server-sample.git
+    $ cd laravel-oauth2-server-sample
+    $ composer install
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+### Config
+1. Correct database settings
+1. Change "url" in app/config/app.php to base URL that accessed from browser
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+### Migration
+    $ php artisan migrate --package="lucadegasperi/oauth2-server-laravel"
+    $ php artisan migrate --seed
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+### Login
+* email: your-email@example.com
+* password: password
 
-## Official Documentation
-
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
-
-### Contributing To Laravel
-
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+### Note
+Once access token is issued, please access the following URL.
+* /scope1?access_token={YOUR_ACCESS_TOKEN} ... This should be allowed
+* /scope2?access_token={YOUR_ACCESS_TOKEN} ... This should be allowed
+* /scope3?access_token={YOUR_ACCESS_TOKEN} ... This should be rejected
 
 ### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Copyright 2014, Mamoru Otsuka. Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
