@@ -66,3 +66,14 @@ Route::post('oauth/authorize', array('before' => 'check-authorization-params|aut
 //		return Redirect::to(AuthorizationServer::makeRedirectWithError($params));
 //	}
 }));
+
+Route::get('callback', function()
+{
+	return View::make('accesstoken-form');
+});
+
+// @see https://github.com/lucadegasperi/oauth2-server-laravel#issuing-an-access-token
+Route::post('oauth/access_token', function()
+{
+	return AuthorizationServer::performAccessTokenFlow();
+});
