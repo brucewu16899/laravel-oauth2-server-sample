@@ -87,5 +87,5 @@ Route::get('scope2', array('before' => 'oauth:scope2', function(){
 }));
 
 Route::get('scope3', array('before' => 'oauth:scope3', function(){
-	return 'scope2 allowed';
+	return 'scope3 allowed';
 }));
